@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>Main Page</title>
+  <link rel="stylesheet" href="style2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+</head>
+  <body>
+    <main>
+      <center><br><br><br><br>
+    
+      <img src="download.png"/>
+        <h1 class="h11">Welcome to HEUC</h1>
+        <h1 class="h12">Student feedback and Evaluation System</h1>
+    </center>
+    <center></center>
+    <aside role="complementary" aria-label="Sidebar" class="form">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; ">
+          <h4 style="margin:0">Evaluation Form</h4><br><br>
+        </div>
+        <center>
+          <p>Please fill out the form below to provide your valuable feedback on your courses and instructors. Your input is essential in helping us improve the quality of education at Hope Enterprise University College (HEUC).</p>
+        </center>
+        <form id="evalForm">
+          <div class="form-grid">
+            <div>
+              <label for="department">Department</label>
+              <select id="department" name="department" class="input" autocomplete="off" required >
+                <option value="">Select Department</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Architecture">Architecture</option>
+                <option value="Marketing Management">Marketing Management</option>
+                <option value="Management">Management</option>
+                <option value="Accounting">Accounting &amp; Finance</option>
+              </select>
+            </div>
+            <div>
+              <label>Program</label>
+              <div style="display:flex; gap:10px; align-items:center;">
+                <label><input type="radio" name="program" value="regular" autocomplete="off" required> Regular</label>
+                <label><input type="radio" name="program" value="extension" autocomplete="off" required> Extension</label>
+              </div>
+            </div>
+            <div>
+              <label for="year">Year</label>
+              <input id="year" type="number" placeholder="year" class="input" autocomplete="off" required>
+            </div>
+            <div>
+              <label for="section">Section</label>
+              <input id="section" type="number" placeholder="Section" class="input" autocomplete="off" required>
+            </div>
+            <div>
+              <label for="instructor">Instructor Name</label>
+              <input id="instructor" type="text" placeholder="Instructor Name" class="input" maxlength="50" autocomplete="off" required>
+            </div>
+            <div>
+              <label for="course">Course Name</label>
+              <input id="course" type="text" placeholder="Course Name" class="input" autocomplete="off" required>
+            </div>
+            <div>
+              <label for="coursecode">Course Code (optional)</label>
+              <input id="coursecode" type="text" placeholder="Course Code" class="input" autocomplete="off">
+            </div>
+            <div>
+              <label for="rating">Rating</label>
+              <select id="rating" name="rating" class="input" autocomplete="off" required>
+                <option value="">Select Rating</option>
+                <option value="5">5 - Excellent</option>
+                <option value="4">4 - Very Good</option>
+                <option value="3">3 - Good</option>
+                <option value="2">2 - Fair</option>
+                <option value="1">1 - Poor</option>
+              </select>
+            </div>
+            <div class="full">
+              <label for="feedback">Enter your feedback here</label>
+              <div class="feedback-row">
+                <textarea id="feedback" name="feedback" class="feedback" placeholder="Write your feedback (max 800 characters)" maxlength="800" autocomplete="off" required></textarea>
+                <div id="fb-count" class="charcount" aria-live="polite">0 / 800</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions">
+            <!-- <button onclick="submitFeedback()" class="sbutton">Submit</button> -->
+            <button type="submit" class="sbutton">Submit</button>
+            <input type="reset" class="rbutton">
+
+          </div>
+        </form>
+    </aside>
+    <aside role="complementary" aria-label="Sidebar" class="top">
+        <!-- <marquee behavior="scroll" direction="right" scrollamount="15" > -->
+        <!-- <button><a href="main.html.about"><h3>About</h3></a></button> -->
+        <button class="Logout" id="b1"><a href="#about" ><h3 class="Logout">About</h3></a></button>
+        <button class="Logout" id="b2"><a href="login.html" ><h3 class="Logout">Logout</h3></a></button>
+        </aside>
+    </main><br><br><br><br><br><br><br><br>
+    <hr>
+    <section class="section">
+    <h1>About</h1>
+    <h2 id="about">Hope Enterprise University College (HEUC) is a prestigious institution dedicated to providing quality education and fostering academic excellence. Established with the vision of empowering students to become leaders in their respective fields, HEUC offers a diverse range of programs and courses designed to meet the evolving needs of the global community. With a commitment to innovation, research, and community engagement, HEUC strives to create a dynamic learning environment that nurtures creativity, critical thinking, and lifelong learning.<br>
+          At Hope Enterprise University College, we are committed to
+            providing students with a seamless and efficient academic experience. This portal is designed to make
+            your course registration, profile management, and access to important academic updates simple and secure.<br><br>
+            Begin your journey with confidence—your future at HEUC starts here.</h2>
+    </section>
+    <footer>
+        <h3>Contact us</h3>
+        <p>info: +251974 176600<br>Registrar: +251974 176666<br>Finance: +251974 176617<br>P.O.Box : 12382<br>info@heuc.edu.et<br>Jemo 1 infront of Lebu Medehanialem Church<br>Addis Ababa</p>
+        <a href="https://www.facebook.com/share/1BBFDyLT63/" class="contact"><b>@Facebook</b></a>
+        <a href="https://www.linkedin.com/company/heuc-edu-et/" class="contact"><b>@LinkedIn</b></a>
+        <a href="https://t.me/HEUC_EDU" class="contact" ><b>@Telegram</b></a>
+      </footer>
+    <script>
+document.getElementById("evalForm").addEventListener("submit", submitFeedback);
+
+function submitFeedback(event) {
+    event.preventDefault();
+
+    const feedbackData = {
+        department: document.getElementById("department").value,
+        program: document.querySelector('input[name="program"]:checked').value,
+        year: document.getElementById("year").value,
+        section: document.getElementById("section").value,
+        instructor: document.getElementById("instructor").value,
+        course: document.getElementById("course").value,
+        coursecode: document.getElementById("coursecode").value,
+        rating: document.getElementById("rating").value,
+        comment: document.getElementById("feedback").value
+    };
+
+    // Save immediately
+    localStorage.setItem("submittedFeedback", JSON.stringify(feedbackData));
+
+    // Redirect right after saving
+    window.location.href = "confirmation.html";
+}
+
+
+// Character counter
+(function(){
+    var ta = document.getElementById('feedback');
+    var counter = document.getElementById('fb-count');
+    if(ta && counter){
+      var max = parseInt(ta.getAttribute('maxlength') || 800, 10);
+      function update(){
+        var len = ta.value.length;
+        counter.textContent = len + ' / ' + max;
+        if(max - len <= 50) counter.classList.add('warn');
+        else counter.classList.remove('warn');
+      }
+      ta.addEventListener('input', update, false);
+      update();
+    }
+})();
+</script>
+
+  </body>
+</html>
