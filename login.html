@@ -8,13 +8,11 @@
     <center>
     <h1>HEUC</h1>
     <h2>login page</h2><br><br>
-    <input type="text" placeholder="Enter Your Name" class="user" required="on" autocomplete="on"><br>
-    <input type="password" placeholder="Enter Your Password" class="user" required="on" autocomplete="off"><br>
+    <input type="text" placeholder="User Name" class="user"  autocomplete="off" required><br>
+    <input type="password" placeholder="Password" class="user"  autocomplete="off" required><br>
 
     <button class="loginButton"><a href="main.html">Login</a></button><br><br>
-    <!-- <button><a href="NewRegister.html">Register</a></button><br><br>
-    <button><a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=http://www.hopeuniversitycollege.org/">About</a></button><br><br>
-    <button><a href="service.html">service</a></button><br><br><br><br><br><br> --><br><br><br><br><br><br>
+    <br><br><br><br><br><br>
     <button><a href="https://www.facebook.com/share/1BBFDyLT63/"><b>Facebook</b></a></button>
     <button><a href="https://www.linkedin.com/company/heuc-edu-et/" ><b>LinkedIn</b></a></button>
     <button><a href="https://t.me/HEUC_EDU"><b>Telegram</b></a></button>
@@ -43,4 +41,23 @@
           </ul>
       </aside>
 </body>
+<script>
+
+const validUser = "student";
+  const validPass = "12345";
+
+  document.querySelector(".loginButton").addEventListener("click", function(e) {
+    e.preventDefault(); 
+
+    const username = document.querySelectorAll(".user")[0].value.trim();
+    const password = document.querySelectorAll(".user")[1].value.trim();
+
+    if (username === validUser && password === validPass) {
+      window.location.href = "main.html";
+    } else {
+      alert("Invalid username or password. Please try again.");
+    }
+  });
+</script>
+
 </html>
